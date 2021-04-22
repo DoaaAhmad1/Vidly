@@ -1,0 +1,32 @@
+﻿
+@model IEnumerable<Vidly.Models.Movie>
+
+
+<h1>Movies</h1>
+<table>
+    <tr>
+        <th>
+            Movie
+        </th>
+    </tr>
+    @{
+        var i = 0;
+        foreach (var movie in Model)
+        {
+
+            <tr>
+                <td>
+
+                    @Html.ActionLink(@movie.Name, "ShowMovieById", movie, new
+                    {
+                        id = i++
+                    })
+
+
+                </td>
+
+            </tr>
+        }
+    }
+
+</table>

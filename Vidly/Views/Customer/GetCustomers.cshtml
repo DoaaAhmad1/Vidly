@@ -1,0 +1,36 @@
+﻿@using Vidly.Models
+@model IEnumerable <Vidly.Models.Customer>
+
+<h1>Customers</h1>
+<table>
+    <tr>
+        <th>
+            Customer
+        </th>
+        <th>
+            Membership Type
+        </th>
+    </tr>
+    @{
+        var i = 0;
+        foreach (var cutomer in Model)
+        {
+
+            <tr>
+                <td>
+                    @Html.ActionLink(@cutomer.Name, "ShowCustomerById",
+                        cutomer,
+                        new
+                        {
+                            id = i++
+
+                        })
+                </td>
+                <td>
+                    @cutomer.MemberShipType.Name
+                </td>
+            </tr>
+        }
+    }
+
+</table>
